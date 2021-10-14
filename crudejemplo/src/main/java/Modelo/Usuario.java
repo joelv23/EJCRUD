@@ -13,9 +13,13 @@ public class Usuario {
     @Column(unique = true, nullable = false)
     private Long id;
 
-
+    @Column (name = "firstname", length = 40)
     private String nombre;
+
+    @Column(name = "lastname", length = 40)
     private String apellido;
+
+    @Column(name = "mail", nullable = false, length = 50, unique = true)
     private String email;
 
     public Usuario() {
