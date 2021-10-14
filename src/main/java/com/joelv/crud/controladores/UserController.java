@@ -1,8 +1,7 @@
-package Controladores;
+package com.joelv.crud.controladores;
 
-
-import Modelo.Usuario;
-import Services.UserServices;
+import com.joelv.crud.modelo.Usuario;
+import com.joelv.crud.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +14,7 @@ import java.util.Optional;
 public class UserController {
 
     @Autowired
-    UserServices userService;
-
+    private UserServices userService;
 
     @GetMapping("users")
     public ArrayList<Usuario> obtUser(){

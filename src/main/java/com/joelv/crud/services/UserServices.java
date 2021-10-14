@@ -1,8 +1,7 @@
-package Services;
+package com.joelv.crud.services;
 
-
-import Modelo.Usuario;
-import Repositorio.UserRepository;
+import com.joelv.crud.modelo.Usuario;
+import com.joelv.crud.repositorio.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

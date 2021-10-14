@@ -1,4 +1,4 @@
-package Modelo;
+package com.joelv.crud.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
