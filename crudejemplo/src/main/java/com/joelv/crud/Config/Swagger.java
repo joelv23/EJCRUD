@@ -1,4 +1,4 @@
-package Config;
+package com.joelv.crud.Config;
 
 
 import com.fasterxml.classmate.TypeResolver;
@@ -44,11 +44,11 @@ public class Swagger {
     private TypeResolver typeResolver;
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Java - SpringSecurity - Postgres",
-                "Control de proyctos y actividades ACL",
+                "Java - SpringBoot - Jpa",
+                "Alumno en practica ACL",
                 "V1",
                 null,
-                new Contact("Roberto Bartolome", null, "rbartolome@@acl.acl"),
+                new Contact("Joel Valenzuela", null, "jvalenzuelas@@acl.acl"),
                 null, null, Collections.emptyList());
     }
 

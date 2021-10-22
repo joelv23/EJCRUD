@@ -1,8 +1,8 @@
-package Controladores;
+package com.joelv.crud.Controllers;
 
 
-import Modelo.Usuario;
-import Services.UserServices;
+import com.joelv.crud.Model.User;
+import com.joelv.crud.Services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,24 +22,25 @@ public class UserController {
 
     //Listar todos los Users
     @GetMapping("users")
-    public List<Usuario> obtUser(){
+    @ResponseStatus(HttpStatus.OK)
+    public List<User> obtUser(){
         return this.userService.obtUsers();
     }
 
     // Crear User
     @PostMapping("/register")
-    public ResponseEntity<Usuario> saveUser(@RequestBody Usuario user){
+    public ResponseEntity<User> saveUser(@RequestBody User user){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(user));
     }
 
     @GetMapping( path = "/{id}")
-    public ResponseEntity<Optional<Usuario>> obtUserPorId(@PathVariable("id") Long id){
+    public ResponseEntity<Optional<User>> obtUserPorId(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.OK).body(userService.obtPorId(id));
     }
 
     //Listar por parametro "nombre"
     @GetMapping( path = "/query")
-    public ResponseEntity<ArrayList<Usuario>> obtUserPorName(@RequestParam("nombre") String nombre){
+    public ResponseEntity<ArrayList<User>> obtUserPorName(@RequestParam("nombre") String nombre){
         return ResponseEntity.status(HttpStatus.OK).body(userService.obtPorName(nombre));
     }
 

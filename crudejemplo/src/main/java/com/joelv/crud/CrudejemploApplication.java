@@ -6,10 +6,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 
-@SpringBootApplication(exclude = {
-        org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
-        }
-)
+@SpringBootApplication
 public class CrudejemploApplication {
 
     public static void main(String[] args) {
