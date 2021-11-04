@@ -8,17 +8,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserServices {
+
     @Autowired
     private UserRepository userRepo;
 
     @Transactional(readOnly = true)
-    public ArrayList<User> obtUsers(){
+    public List<User> obtUsers(){
 
-        return (ArrayList<User>) userRepo.findAll();
+        return (List<User>) userRepo.findAll();
     }
 
     @Transactional
@@ -34,9 +36,9 @@ public class UserServices {
     }
 
     @Transactional(readOnly = true)
-    public ArrayList<User> obtPorName(String nombre)
+    public List<User> obtPorName(String nombre)
     {
-        return (ArrayList<User>) userRepo.findByNombre(nombre);
+        return (List<User>) userRepo.findByNombre(nombre);
     }
 
     public boolean deleteUser(Long id) {

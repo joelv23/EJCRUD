@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sun.plugin.javascript.navig4.LayerArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +25,11 @@ public class UserController {
     @GetMapping("users")
     @ResponseStatus(HttpStatus.OK)
     public List<User> obtUser(){
-        return this.userService.obtUsers();
+        return userService.obtUsers();
     }
 
     // Crear User
-    @PostMapping("/register")
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> saveUser(@RequestBody User user){
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(user));
@@ -41,7 +42,7 @@ public class UserController {
 
     //Listar por parametro "nombre"
     @GetMapping( path = "/query")
-    public ResponseEntity<ArrayList<User>> obtUserPorName(@RequestParam("nombre") String nombre){
+    public ResponseEntity<List<User>> obtUserPorName(@RequestParam("nombre") String nombre){
         return ResponseEntity.status(HttpStatus.OK).body(userService.obtPorName(nombre));
     }
 

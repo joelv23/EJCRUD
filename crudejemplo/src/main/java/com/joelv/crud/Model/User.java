@@ -2,6 +2,7 @@ package com.joelv.crud.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -33,16 +34,13 @@ public class User {
         this.email = email;
     }
 
-    public Long getId() {
-        return id;
-    }
 
     public void setId(Long id) {
         this.id = id;
     }
 
     public String getNombre() {
-        return nombre;
+      return nombre;
     }
 
     public void setNombre(String nombre) {

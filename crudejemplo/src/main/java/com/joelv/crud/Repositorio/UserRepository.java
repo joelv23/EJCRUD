@@ -5,8 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    public AbstractList<User> findByNombre(String nombre);
+    public List<User> findByNombre(String nombre);
 }
