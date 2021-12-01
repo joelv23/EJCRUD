@@ -1,8 +1,9 @@
-package com.joelv.crud.controladores;
+package com.joelv.crud.controllers;
 
-import com.joelv.crud.modelo.Usuario;
+import com.joelv.crud.model.User;
 import com.joelv.crud.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,30 +18,32 @@ public class UserController {
     private UserServices userService;
 
     @GetMapping("users")
-    public ArrayList<Usuario> obtUser(){
+    @ResponseStatus(HttpStatus.OK)
+    public ArrayList<User> obtUser() {
         return userService.obtUsers();
     }
 
     @PostMapping("/register")
-    public Usuario saveUser(@RequestBody Usuario user){
+    public User saveUser(@RequestBody User user) {
         return this.userService.saveUser(user);
     }
 
-    @GetMapping( path = "/{id}")
-    public Optional<Usuario> obtUserPorId(@PathVariable("id") Long id){
+    @GetMapping(path = "/{id}")
+    public Optional<User> obtUserPorId(@PathVariable("id") Long id) {
         return this.userService.obtPorId(id);
     }
 
-    @GetMapping( path = "/query")
-    public ArrayList<Usuario> obtUserPorName(@RequestParam("nombre") String nombre){
+    @GetMapping(path = "/query")
+    public ArrayList<User> obtUserPorName(@RequestParam("nombre") String nombre) {
         return this.userService.obtPorName(nombre);
     }
-    @DeleteMapping( path = "/{id}")
-    public String deletePorId(@PathVariable("id") Long id){
+
+    @DeleteMapping(path = "/{id}")
+    public String deletePorId(@PathVariable("id") Long id) {
         boolean ok = this.userService.deleteUser(id);
-        if (ok){
+        if (ok) {
             return "Se elimino el usuario con id " + id;
-        }else {
+        } else {
             return "No se pudo eliminar el usuario con id" + id;
         }
     }

@@ -1,7 +1,7 @@
 package com.joelv.crud.services;
 
-import com.joelv.crud.modelo.Usuario;
-import com.joelv.crud.repositorio.UserRepository;
+import com.joelv.crud.model.User;
+import com.joelv.crud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,29 +11,32 @@ import java.util.Optional;
 @Service
 public class UserServices {
     @Autowired
-    UserRepository userRepo;
+    private UserRepository userRepo;
 
-    public ArrayList<Usuario> obtUsers(){
-        return (ArrayList<Usuario>) userRepo.findAll();
+    public UserServices(UserRepository repository) {
     }
 
-    public Usuario saveUser(Usuario user){
+    public ArrayList<User> obtUsers() {
+        return (ArrayList<User>) userRepo.findAll();
+    }
+
+    public User saveUser(User user) {
         return userRepo.save(user);
     }
 
-    public Optional<Usuario> obtPorId(Long id){
+    public Optional<User> obtPorId(Long id) {
         return userRepo.findById(id);
     }
 
-    public ArrayList<Usuario> obtPorName(String nombre){
-        return (ArrayList<Usuario>) userRepo.findByNombre(nombre);
+    public ArrayList<User> obtPorName(String nombre) {
+        return (ArrayList<User>) userRepo.findByNombre(nombre);
     }
 
     public boolean deleteUser(Long id) {
         try {
             userRepo.deleteById(id);
             return true;
-        }catch (Exception err){
+        } catch (Exception err) {
             return false;
         }
     }

@@ -1,11 +1,11 @@
-package com.joelv.crud.modelo;
+package com.joelv.crud.model;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class Usuario {
+public class User {
 
 
     @Id
@@ -18,11 +18,12 @@ public class Usuario {
     private String apellido;
     private String email;
 
-    public Usuario() {
+    public User() {
 
     }
 
-    public Usuario(String nombre, String apellido, String email) {
+    public User(Long id, String nombre, String apellido, String email) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
